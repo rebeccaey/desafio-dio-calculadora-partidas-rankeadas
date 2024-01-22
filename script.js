@@ -1,4 +1,4 @@
-//Criando uma constante chamada leia para efetuar leitura dos dados informados via teclado.
+//Criando uma constante chamada read para efetuar leitura dos dados informados via teclado.
 const read = require("prompt-sync")();
 
 let vitorias, derrotas;
