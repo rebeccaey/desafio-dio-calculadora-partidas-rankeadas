@@ -1,23 +1,38 @@
-const nivelHeroi = ["Ferro", "Bronze", "Prata", "Ouro", "Diamante", "Lendário", "Imortal"];
-let saldoRankeadas = calcularVitorias(2093, 1998);
+//Criando uma constante chamada leia para efetuar leitura dos dados informados via teclado.
+const read = require("prompt-sync")();
 
-function calcularVitorias(vitorias, derrotas) {
-    let resultado = vitorias - derrotas;
-    return resultado;
+let vitorias, derrotas, ranking;
+
+function setSaldo(vitorias, derrotas) {
+  return vitorias - derrotas;
 }
 
-if (saldoRankeadas <= 10) {
-    console.log("O Herói tem o saldo de " + saldoRankeadas + " vitórias e está no nível " + nivelHeroi[0]);
-} else if (saldoRankeadas === 11 || saldoRankeadas <= 20 ) {
-    console.log("O Herói tem o saldo de " + saldoRankeadas + " vitórias e está no nível " + nivelHeroi[1]);
-} else if (saldoRankeadas === 21 || saldoRankeadas <= 50 ) {
-    console.log("O Herói tem o saldo de " + saldoRankeadas + " vitórias e está no nível " + nivelHeroi[2]);
-} else if (saldoRankeadas === 51 || saldoRankeadas <= 80 ) {
-    console.log("O Herói tem o saldo de " + saldoRankeadas + " vitórias e está no nível " + nivelHeroi[3]);
-} else if (saldoRankeadas === 81 || saldoRankeadas <= 90 ) {
-    console.log("O Herói tem o saldo de " + saldoRankeadas + " vitórias e está no nível " + nivelHeroi[4]);
-} else if (saldoRankeadas === 91 || saldoRankeadas <= 100 ) {
-    console.log("O Herói tem o saldo de " + saldoRankeadas + " vitórias e está no nível " + nivelHeroi[5]);
-} else {
-    console.log("O Herói tem o saldo de " + saldoRankeadas + " vitórias e está no nível " + nivelHeroi[6]);
+function checkRanking(saldo) {
+  if (saldo < 11) {
+    return "Ferro";
+  }
+  if (saldo >= 11 && saldo <= 20) {
+    return "Bronze";
+  }
+  if (saldo >= 21 && saldo <= 50) {
+    return "Prata";
+  }
+  if (saldo >= 51 && saldo <= 80) {
+    return "Ouro";
+  }
+  if (saldo >= 81 && saldo <= 90) {
+    return "Diamante";
+  }
+  if (saldo >= 91 && saldo <= 100) {
+    return "Lendário";
+  }
+  if (saldo >= 101) {
+    return "Imortal";
+  }
 }
+
+console.log("Digite a quantidade de vitórias:");
+vitorias = parseInt(read());
+console.log("Digite a quantidade de derrotas:");
+derrotas = parseInt(read());
+console.log("O Herói tem de saldo de " + setSaldo(vitorias, derrotas) + " está no nível de " + checkRanking(setSaldo(vitorias, derrotas)));
