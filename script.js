@@ -1,7 +1,7 @@
 //Criando uma constante chamada leia para efetuar leitura dos dados informados via teclado.
 const read = require("prompt-sync")();
 
-let vitorias, derrotas, ranking;
+let vitorias, derrotas;
 
 function setSaldo(vitorias, derrotas) {
   return vitorias - derrotas;
